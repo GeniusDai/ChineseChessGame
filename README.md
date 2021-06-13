@@ -31,6 +31,17 @@ To start the Client:
 
     % make run port=<port>
 
+TODO
+----
+
+* ZooKeeper-Client shall deal with network problems
+
+* Validity of chess move shall be accessed
+
+* C++ source code could be complied to dynamic libs
+
+* IPC could be encrypted
+
 Demo
 ----
 
