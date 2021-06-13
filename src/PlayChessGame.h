@@ -29,7 +29,9 @@ public:
         game.showGameBoard();
         game.welcome();
         while (true) {
+            // The read system call really wasting CPU in OSX test
             unordered_map<string, string> msg = listener.readParseConn();
+
             game.showGameBoard(msg["player"]);
             if (msg["move"] != invalid) {
                 game.moveChess(msg["move"]);

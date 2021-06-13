@@ -11,7 +11,7 @@ LOGFILE = log-$(port).txt
 
 CXXFLAGS = -O0 -Wall -std=c++11
 
-LDFLAGS = -lpthread
+LDFLAGS = 
 
 .PHONY: all build clean init run
 
