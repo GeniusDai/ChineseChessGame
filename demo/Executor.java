@@ -35,7 +35,6 @@ public class Executor implements Runnable, Watcher, AutoCloseable {
     static final String room = "/ROOM";
     static final String lockNode = "player";
     static final String ready = "ready";
-    static final String begin = "begin";
     static final String leave = "leave";
 
     // Table info
@@ -221,15 +220,8 @@ public class Executor implements Runnable, Watcher, AutoCloseable {
             System.out.println("data: " + data);
             switch(data) {
             case ready:
-                setThenWatch(begin.getBytes());
-                break;
-            case begin:
-                if (new String(zk.getData(player, null, null)).equals(ready)) {
-                    setThenWatch(begin.getBytes());
-                } else {
-                    if (color.equals(red)) {
-                        setThenWatch(askForMove().getBytes());
-                    }
+                if (color.equals(red)) {
+                    setThenWatch(askForMove().getBytes());
                 }
                 break;
             case leave:
