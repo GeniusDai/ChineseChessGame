@@ -5,6 +5,12 @@ About
 
 Implemented by *Java/C++/ZooKeeper*...
 
+* Java-client deal with the ZooKeeper-Server
+
+* CPP-client manage the chess board
+
+* Use TCP/IP for IPC
+
 Pre-requirement
 ---------------
 
@@ -19,17 +25,17 @@ Pre-requirement
 Build and Run
 -------------
 
-To build and get the executable file:
+To build the project:
 
     % make build
 
-To init the zookeeper server:
+To initialize the ZooKeeper-Server:
 
     % make init
 
 To start the Client:
 
-    % make run port=<port>
+    % make run port=<ipc-tcp-port>
 
 TODO
 ----
