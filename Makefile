@@ -1,5 +1,5 @@
 SRC = src
-PACKAGE = demo
+PACKAGE = com/dai
 CXXMAIN = main
 JAVAMAIN = Executor
 JAVAINIT = InitializeServer

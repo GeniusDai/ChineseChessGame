@@ -1,7 +1,9 @@
-package demo;
+package com.dai;
 
 import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
+
+import com.dai.Executor;
 
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.KeeperException;
@@ -11,7 +13,6 @@ import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.ZooDefs.Ids;
 import java.io.File;
-import demo.Executor;
 
 public class InitializeServer implements Watcher {
     static final CountDownLatch latch = new CountDownLatch(1);

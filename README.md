@@ -41,10 +41,3 @@ TODO
 * C++ source code could be complied to dynamic libs
 
 * IPC could be encrypted
-
-Demo
-----
-
-Starting chess game need at least two clients, just like:
-
-![image](./demo.png)
