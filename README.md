@@ -16,6 +16,8 @@ Pre-requirement
 
 * ZooKeeper >= 3.6.3
 
+* Java >= 11
+
 * g++ >= 4.8.5
 
 * make >= 3.82
