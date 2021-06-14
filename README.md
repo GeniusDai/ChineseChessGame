@@ -31,11 +31,17 @@ To build the project:
 
 To initialize the ZooKeeper-Server:
 
-    % make init
+    % make init zkaddr=<zookeeper-server-address>
 
 To start the Client:
 
-    % make run port=<ipc-tcp-port>
+    % make run port=<ipc-tcp-port> zkaddr=<zookeeper-server-address>
+
+Default:
+
+* ipc port: "8888"
+
+* zookeeper server: "localhost:2181"
 
 TODO
 ----
