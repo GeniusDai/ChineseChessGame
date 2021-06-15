@@ -212,7 +212,7 @@ public class Executor implements Runnable, Watcher, AutoCloseable {
     }
 
     @Override
-    public synchronized void process(WatchedEvent event) {
+    public void process(WatchedEvent event) {
         System.out.println("process triggered by " + event.toString());
         assert(event.getPath().equals(oppo));
         try {
