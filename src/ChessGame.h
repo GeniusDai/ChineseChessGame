@@ -4,6 +4,7 @@
 #include <unordered_map>
 #include <cstdlib>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -55,7 +56,6 @@ public:
             return static_cast<size_t>(t);
         }
     };
-
 
     ChessGame() {
         initHash();
@@ -132,12 +132,8 @@ public:
         cout << endl;
     }
 
-    void showGameBoard(string player) {
-        showGameBoard();
-        showPlayer(player);
-    }
-
     void moveChess(int fx, int fy, int tx, int ty) {
+        if (fx == tx && fy == ty) return;
         board_[tx][ty] = board_[fx][fy];
         board_[fx][fy] = _chess_ptr(nullptr);
     }
@@ -147,9 +143,6 @@ public:
     }
 
     void moveChess(string move) {
-#ifdef _DEBUG
-    cout << "move is: " << move << endl;
-#endif
         char sep = ' ';
         move += sep;
         int begin = -1;
@@ -164,19 +157,8 @@ public:
                 }
             }
         }
-#ifdef _DEBUG
-    cout << "ans size: " << ans.size() << endl;
-#endif
         assert(ans.size() == 4);
         moveChess(ans);
-    }
-
-    void welcome() {
-        cout << "Welcome! Now waiting for another player to join..." << endl;
-    }
-
-    void showPlayer(string player) {
-        cout << "You are player: " << player << endl;
     }
 
     string askMove() {

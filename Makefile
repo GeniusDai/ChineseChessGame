@@ -1,35 +1,26 @@
 SRC = src
-PACKAGE = com/dai
-CXXMAIN = main
-JAVAMAIN = Executor
-JAVAINIT = InitializeServer
+BIN = bin
+SERVER = StartServer
+CLIENT = StartClient
 
-port = "8888"
-zkaddr = "localhost:2181"
+CXXFLAGS = -O0 -Wall -std=c++11 -g
 
-LOGFILE = log-$(port).txt
+LDFLAGS = -lpthread
 
-CXXFLAGS = -O0 -Wall -std=c++11
-
-LDFLAGS = 
-
-.PHONY: all build clean init run
+.PHONY: all build clean run-server run-client
 
 all: build
 
 build: clean
-	g++ $(CXXFLAGS) -o $(SRC)/$(CXXMAIN) $(SRC)/$(CXXMAIN).cc $(LDFLAGS)
-	javac $(PACKAGE)/$(JAVAMAIN).java
-	javac $(PACKAGE)/$(JAVAINIT).java
+	mkdir $(BIN)
+	g++ $(CXXFLAGS) -o $(BIN)/$(SERVER) $(SRC)/$(SERVER).cc $(LDFLAGS)
+	g++ $(CXXFLAGS) -o $(BIN)/$(CLIENT) $(SRC)/$(CLIENT).cc $(LDFLAGS)
 
 clean:
-	rm -f $(SRC)/$(CXXMAIN)
-	rm -f $(PACKAGE)/$(JAVAMAIN)*.class $(PACKAGE)/$(JAVAINIT)*.class
-	rm -f log-*.txt
+	rm -rf $(BIN)
 
-init:
-	java $(PACKAGE)/$(JAVAINIT) $(zkaddr)
+run-server:
+	$(BIN)/StartServer
 
-run:
-	sleep 3 && java $(PACKAGE)/$(JAVAMAIN) $(port) $(zkaddr) > $(LOGFILE) 2>&1 &
-	$(SRC)/$(CXXMAIN) $(port)
+run-client:
+	$(BIN)/StartClient

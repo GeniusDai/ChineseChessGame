@@ -3,26 +3,16 @@
 About
 -----
 
-Implemented by *Java/C++/ZooKeeper*...
-
-* Java-client deal with the ZooKeeper-Server
-
-* CPP-client manage the chess board
-
-* Use TCP/IP for IPC
+Implemented by *C++*
 
 Pre-requirement
 ---------------
 
-* ZooKeeper >= 3.6.3
-
-* Java >= 11
+* Linux OS: For epoll
 
 * g++ >= 4.8.5
 
 * make >= 3.82
-
-* Unix OS: Linux, OSX
 
 Build and Run
 -------------
@@ -31,27 +21,31 @@ To build the project:
 
     % make build
 
-To initialize the ZooKeeper-Server:
+To start the Server:
 
-    % make init zkaddr=<zookeeper-server-address>
+    % make run-server
 
 To start the Client:
 
-    % make run port=<ipc-tcp-port> zkaddr=<zookeeper-server-address>
+    % make run-client
 
 Default:
 
-* ipc port: "8888"
+* TCP Port: "8889"
 
-* zookeeper server: "localhost:2181"
+* Server IP: "127.0.0.1"
 
 TODO
 ----
 
-* ZooKeeper-Client shall deal with network problems
+* Validity of chess be accessed
 
-* Validity of chess move shall be accessed
+* Complie source code to dynamic libs
 
-* C++ source code could be complied to dynamic libs
+* TCP encrypte by SSL/TLS
 
-* IPC could be encrypted
+* Implement GUI by QT
+
+* Exception handler
+
+* Add Unittest
