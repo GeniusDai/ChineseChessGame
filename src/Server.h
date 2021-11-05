@@ -89,7 +89,7 @@ public:
                         throw "epoll_ctl add connect socket error";
                     }
 
-                    message[conn] = make_pair(unique_ptr<char []>(new char(_msgBufferSize)), 0);
+                    message[conn] = make_pair(unique_ptr<char []>(new char[_msgBufferSize]), 0);
 
                     if (single.empty()) {
                         single.insert(conn);
