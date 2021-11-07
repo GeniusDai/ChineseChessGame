@@ -42,7 +42,7 @@ TODO
 
 * Complie source code to dynamic libs
 
-* TCP encrypte by SSL/TLS
+* TCP encrypted by SSL/TLS
 
 * Implement GUI by QT
 
