@@ -35,6 +35,17 @@ Default:
 
 * Server IP: "127.0.0.1"
 
+Screenshot
+----------
+
+* RED
+
+![image](https://github.com/GeniusDai/ChineseChessGame/raw/main/screenshot/RED.png)
+
+* BLACK
+
+![image](https://github.com/GeniusDai/ChineseChessGame/raw/main/screenshot/BLACK.png)
+
 TODO
 ----
 
