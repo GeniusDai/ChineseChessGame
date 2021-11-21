@@ -3,7 +3,7 @@ BIN = bin
 SERVER = StartServer
 CLIENT = StartClient
 
-CXXFLAGS = -O0 -Wall -std=c++11 -g
+CXXFLAGS = -O0 -Wall -std=c++14 -g -I include
 
 LDFLAGS = -lpthread
 
