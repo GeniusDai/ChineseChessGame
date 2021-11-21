@@ -31,12 +31,12 @@ public:
         if (len == 0) {
             cout << "client closed the socket, will close " << conn << endl;
             ::close(conn);
-            ::epoll_ctl(_epfd, EPOLL_CTL_DEL, conn, NULL);
+            RemoveFd(conn);
             _ts->message.erase(conn);
             if (_ts->match.find(conn) != _ts->match.cend()) {
                 cout << "find oppo, will close socket " << _ts->match[conn] << endl;
                 ::close(_ts->match[conn]);
-                ::epoll_ctl(_epfd, EPOLL_CTL_DEL, _ts->match[conn], NULL);
+                RemoveFd(_ts->match[conn]);
                 _ts->message.erase(_ts->match[conn]);
                 _ts->match.erase(_ts->match[conn]);
             } else {
@@ -89,7 +89,7 @@ public:
     }
 
     void onPassivelyClose(int conn) {
-        ::close(conn);
+
     }
 };
 

@@ -59,13 +59,13 @@ public:
                     cout << "thread " << this_thread::get_id() << " release lock" << endl;
                     onConnect(conn);
                 } else {
-                    if (_evs[i].events & EPOLLRDHUP) {
-                        cout << "conn " << _evs[i].data.fd << " passively closed" << endl;
-                        onPassivelyClose(_evs[i].data.fd);
-                    }
                     if (_evs[i].events & EPOLLIN) {
                         cout << "conn " << _evs[i].data.fd << " readable" << endl;
                         onReadable(_evs[i].data.fd);
+                    }
+                    if (_evs[i].events & EPOLLRDHUP) {
+                        cout << "conn " << _evs[i].data.fd << " passively closed" << endl;
+                        onPassivelyClose(_evs[i].data.fd);
                     }
                     if (_evs[i].events & EPOLLOUT) {
                         cout << "conn " << _evs[i].data.fd << " writable" << endl;
