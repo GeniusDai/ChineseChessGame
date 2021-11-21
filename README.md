@@ -38,13 +38,7 @@ Default:
 Screenshot
 ----------
 
-* RED
-
-![image](https://github.com/GeniusDai/ChineseChessGame/raw/main/screenshot/RED.png)
-
-* BLACK
-
-![image](https://github.com/GeniusDai/ChineseChessGame/raw/main/screenshot/BLACK.png)
+![image](https://github.com/GeniusDai/ChineseChessGame/raw/main/pictures/Play_Chess.png)
 
 TODO
 ----

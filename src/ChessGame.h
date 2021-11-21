@@ -163,9 +163,10 @@ public:
 
     string askMove() {
         vector<int> ans(4);
-        cout << "Please enter the chess to move(row, column): ";
+        cout << "Enter the chess move[row column]" << endl;
+        cout << "-> From : ";
         cin >> ans[0] >> ans[1];
-        cout << "Please enter the position to move(row, column): ";
+        cout << "->  To  : ";
         cin >> ans[2] >> ans[3];
         string data;
         for (int i = 0; i < ans.size(); ++i) {
