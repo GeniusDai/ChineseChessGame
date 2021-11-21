@@ -24,12 +24,12 @@ public:
     int _thrNum;
     int _sock;
     int _port;
-    unique_ptr<EpollTP<Handler<ThreadShare>, ThreadShare> > _tp;
+    shared_ptr<EpollTP<Handler<ThreadShare>, ThreadShare> > _tp;
     ThreadShare *_ts;
 
     EpollTPServer(int thrNum, int port, ThreadShare *ts) : _thrNum(thrNum), _port(port), _ts(ts) {
         _sock = _listen();
-        _tp = make_unique<EpollTP<Handler<ThreadShare>, ThreadShare> >(_sock, _thrNum, _ts);
+        _tp = make_shared<EpollTP<Handler<ThreadShare>, ThreadShare> >(_sock, _thrNum, _ts);
     }
 
     int _listen() {

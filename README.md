@@ -43,6 +43,16 @@ Screenshot
 TODO
 ----
 
+High Priority:
+
+* Data is not multi-thread safe
+
+* Implement thread safe logger
+
+* Exception handler
+
+Low Priority:
+
 * Validity of chess be accessed
 
 * Complie source code to dynamic libs
@@ -50,7 +60,5 @@ TODO
 * TCP/IP be encrypted by SSL/TLS
 
 * Implement GUI by QT
-
-* Implement Exception handler
 
 * Add Unittest by gtest

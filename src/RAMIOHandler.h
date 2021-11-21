@@ -18,12 +18,12 @@
 using namespace std;
 
 template<typename ThreadShare>
-class RAMHandler : public IOHandler {
+class RAMIOHandler : public IOHandler {
     static const int _msgBufferSize = 100;
     const char *initMsg = "0 0 0 0\n";
     ThreadShare *_ts;
 public:
-    RAMHandler(int sock, mutex *mptr, ThreadShare *ts) : IOHandler(sock, mptr), _ts(ts) {}
+    RAMIOHandler(int sock, mutex *mptr, ThreadShare *ts) : IOHandler(sock, mptr), _ts(ts) {}
 
     void onConnect(int conn) {
         _ts->message[conn] = make_pair(unique_ptr<char []>(new char[_msgBufferSize]), 0);
@@ -100,4 +100,4 @@ public:
     unordered_map<int, pair<unique_ptr<char []>, int> > message;
 };
 
-#endif  // RAMHandler.h
+#endif  // RAMIOHandler.h
