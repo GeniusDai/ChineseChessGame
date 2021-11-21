@@ -25,6 +25,23 @@ class RAMHandler : public IOHandler {
 public:
     RAMHandler(int sock, mutex *mptr, ThreadShare *ts) : IOHandler(sock, mptr), _ts(ts) {}
 
+    void onConnect(int conn) {
+        _ts->message[conn] = make_pair(unique_ptr<char []>(new char[_msgBufferSize]), 0);
+        if (_ts->single.empty()) {
+            _ts->single.insert(conn);
+            cout << "single client " << conn << endl;
+        } else {
+            auto iter = _ts->single.begin();
+            int oppo = *iter;
+            _ts->single.erase(iter);
+            _ts->match[oppo] = conn;
+            _ts->match[conn] = oppo;
+            write(oppo, initMsg, strlen(initMsg));
+            cout << "match client " << conn << "&" << oppo << endl;
+        }
+        RegisterFd(conn, EPOLLIN);
+    }
+
     void onReadable(int conn) {
         char buf[100];
         int len = read(conn, buf, 100);
@@ -65,23 +82,6 @@ public:
         } else {
             cout << "receive partial message from " << conn << endl;
         }
-    }
-
-    void onConnect(int conn) {
-        _ts->message[conn] = make_pair(unique_ptr<char []>(new char[_msgBufferSize]), 0);
-        if (_ts->single.empty()) {
-            _ts->single.insert(conn);
-            cout << "single client " << conn << endl;
-        } else {
-            auto iter = _ts->single.begin();
-            int oppo = *iter;
-            _ts->single.erase(iter);
-            _ts->match[oppo] = conn;
-            _ts->match[conn] = oppo;
-            write(oppo, initMsg, strlen(initMsg));
-            cout << "match client " << conn << "&" << oppo << endl;
-        }
-        RegisterFd(conn, EPOLLIN | EPOLLRDHUP);
     }
 
     void onWritable(int conn) {
