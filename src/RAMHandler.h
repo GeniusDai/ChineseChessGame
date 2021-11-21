@@ -1,3 +1,6 @@
+#ifndef _RAM_HANDLER_H_
+#define _RAM_HANDLER_H_
+
 #include <sys/epoll.h>
 #include <iostream>
 #include <sys/socket.h>
@@ -13,9 +16,6 @@
 #include "IOHandler.h"
 
 using namespace std;
-
-#ifndef _SERVER_
-#define _SERVER_
 
 template<typename ThreadShare>
 class RAMHandler : public IOHandler {
@@ -89,7 +89,7 @@ public:
     }
 
     void onPassivelyClose(int conn) {
-
+        ::close(conn);
     }
 };
 
@@ -100,4 +100,4 @@ public:
     unordered_map<int, pair<unique_ptr<char []>, int> > message;
 };
 
-#endif  // Server.h
+#endif  // RAMHandler.h
