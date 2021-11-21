@@ -38,7 +38,7 @@ Default:
 Screenshot
 ----------
 
-![image](https://github.com/GeniusDai/ChineseChessGame/raw/main/pictures/Play_Chess.png)
+![image](https://github.com/GeniusDai/ChineseChessGame/raw/main/pictures/PlayChess.png)
 
 TODO
 ----
