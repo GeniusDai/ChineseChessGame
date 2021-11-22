@@ -1,4 +1,6 @@
-# Chinese Chess Game
+## Maintenance stopped, please refer to [kingpin](https://github.com/GeniusDai/kingpin)
+
+## Chinese Chess Game
 
 About
 -----
